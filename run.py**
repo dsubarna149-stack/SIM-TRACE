@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+import sys
+sys.path.append('.')
+from sim_tracker import SIMTracker
+
+def main():
+    tracker = SIMTracker()
+    
+    # Numbers নিন
+    if len(sys.argv) > 1:
+        numbers = sys.argv[1:]
+    else:
+        numbers = ["9876543210", "9876543211"]
+        print("Default numbers use করছি. Custom দিন: python run.py 98XXXXXXX")
+    
+    print(f"🚀 {len(numbers)} numbers scan হচ্ছে...")
+    results = tracker.scan_multiple(numbers)
+    tracker.export()
+    
+    print("✅ COMPLETE! CSV download করুন")
+
+if __name__ == "__main__":
+    main()
